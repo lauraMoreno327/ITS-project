@@ -9,8 +9,21 @@
 let students = [];
 let courses =[];
 
+console.log("test!!!!");
+console.log(students);
+setTimeout(()=>{
+    let result1 =document.getElementById("ButtonS");
+    console.log(result1);
+    if(result1){
+        console.log("adding event listener for buttonC")
+        result1.addEventListener("click",addStudent); 
+    }
+},2000)
+
+
 
 function addStudent(){
+  
     let student = {
     
         name: document.getElementById("name").value,
@@ -21,10 +34,10 @@ function addStudent(){
     }
     students.push(student);
     document.forms[0].reset;
-    alert("The student has been added succesfully");
+    console.log("Reached here");
 }
 
-document.getElementById("ButtonS").addEventListener("click",addStudent());
+
    
 
    function  addCourse(){
@@ -45,7 +58,10 @@ alert("The course has been added succesfully");
     }
 
 
-    document.getElementById("ButtonC").addEventListener("click",addCourse());
+    var result =document.getElementById("ButtonC");
+    if(result){
+        ButtonC.addEventListener("click",addCourse);
+    }
 
     function deleteStudent(student){
 
