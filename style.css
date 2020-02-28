@@ -1,0 +1,55 @@
+
+
+body{
+background-color: beige;
+padding: 2em;
+}
+#menu {
+        width: 50em;
+        height: 10em;
+        padding: 1em 1em 1em 1em;
+        font-family: 'Trebuchet MS', 'Lucida Grande',
+        Verdana, Lucida, Geneva, Helvetica, 
+        Arial, sans-serif;
+        background-color: #90bade;
+        color: #333;
+        position: absolute;
+        top: 5%;
+        }
+
+   
+        
+
+     #menu li a {
+        display: block;
+        padding: 5px 5px 5px 0.5em;
+        border-left: 10px solid #1958b7;
+        border-right: 10px solid #508fc4;
+        background-color: #2175bc;
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
+        } 
+
+
+
+    #menu a:hover {
+        border-left: 10px solid #1c64d1;
+        border-right: 10px solid #5ba3e0;
+        background-color: #0e3f66;
+        color: #fff;
+        }
+
+    #scontainer{
+        position: absolute;
+        top: 30%;
+
+    }
+    #ccontainer{
+        position: absolute;
+        top: 30%;
+
+    }
+
+
+    
