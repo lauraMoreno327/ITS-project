@@ -8,8 +8,65 @@
    
 </head>
 <body>
-    <script src="app.js">
+<!-- ................................................................................. -->
+    <script>
+        window.onload = myCode();
+function myCode(){
+let students = [];
+let courses =[];
+
+
+console.log("test!!!!");
+console.log(document.getElementById("ButtonS"));
+
+  
+
+const addStudent = (ev) =>{
+    ev.preventDefault();
+  
+    let student = {
+    
+        name: document.getElementById("name").value,
+        lastName:document.getElementById("lastname").value,
+        iD: document.getElementById("id").value,
+        age :document.getElementById("age").value,
+        degree: document.getElementById("degree").value
+    }
+    students.push(student);
+    document.forms[0].reset;
+    console.log("Reached here");
+    console.log(students);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("ButtonS").addEventListener("click", addStudent);
+});
+
+   const  addCourse =  (ev) =>{
+    ev.preventDefault();
+    let course =  {
+   
+        
+        nameC: document.getElementById("namec").value,
+        iDC: document.getElementById("idc").value,
+        seatLimit: document.getElementById("seat capacity").value,
+        degreeC: document.getElementById("degreec").value
+       
+    
+        }
+courses.push(course);
+document.forms[0].reset;
+alert("The course has been added succesfully");
+
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById("ButtonC").addEventListener("click", addCourse);
+        });
+
+    }
+    window.onload = myCode();
     </script>
+
+    <!-- ......................................................... -->
     <ul name = "tab browser">
         <ul id="menu">    
             <li><a href="index.html">Home</a></li>          
@@ -23,29 +80,19 @@
    <p>Add the student  information </p>
 
 </div>
-<div id="Student container body"
->
-    <form name = "name student card">
-        <input type = "text" id = "name" placeholder="First Name">
-    </form>
-    <form name = "last name  student card">
-        <input type = "text" id = "lastname" placeholder="Last Name">
-    </form>
-    <form name = "Id student card">
-        <input type = "number" id = "id" placeholder="Identification Number">
-    </form>
-    <form name = "Degree student card">
-        <input type = "text" id = "degree" placeholder="Degree">
-    </form>
-    <form name = "Age student card">
-        <input type = "number" id = "age" placeholder="Age">
-    </form>
+<form>
+<div>
+        <input type = "text" id = "name" placeholder="First Name"/>
+        <input type = "text" id = "lastname" placeholder="Last Name"/>
+        <input type = "number" id = "id" placeholder="Identification Number"/>
+        <input type = "number" id = "age" placeholder="Age"/>
     </div>
-    <form name = "Submit student">
-    <button id="ButtonS">Submit</button>
-    </form>
+    <div class = "Submit student">
+        <button id="ButtonS">Submit</button>
+    </div>
 
 </div>
+</form>
     
 </body>
 </html>

@@ -5,10 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
     <title>Add Courses</title>
-    <script src="app.js">
-    </script>
+   
 </head>
 <body>
+    <!-- ................................................................................. -->
+    <script>
+        window.onload = myCode();
+        function myCode(){
+        let students = [];
+        let courses =[];
+        
+        
+        console.log("test!!!!");
+        console.log(document.getElementById("ButtonS"));
+        
+          
+        
+        const addStudent = (ev) =>{
+            ev.preventDefault();
+          
+            let student = {
+            
+                name: document.getElementById("name").value,
+                lastName:document.getElementById("lastname").value,
+                iD: document.getElementById("id").value,
+                age :document.getElementById("age").value,
+                degree: document.getElementById("degree").value
+            }
+            students.push(student);
+            document.forms[0].reset;
+            console.log("Reached here");
+            console.log(students);
+        }
+        document.addEventListener('DOMContentLoaded',()=>{
+        document.getElementById("ButtonS").addEventListener("click", addStudent);
+        });
+        
+           const  addCourse =  (ev) =>{
+            ev.preventDefault();
+            let course =  {
+           
+                
+                nameC: document.getElementById("namec").value,
+                iDC: document.getElementById("idc").value,
+                seatLimit: document.getElementById("seat capacity").value,
+                degreeC: document.getElementById("degreec").value
+               
+            
+                }
+        courses.push(course);
+        document.forms[0].reset;
+        alert("The course has been added succesfully");
+        
+            }
+            document.addEventListener('DOMContentLoaded',()=>{
+                document.getElementById("ButtonC").addEventListener("click", addCourse);
+                });
+        
+            }
+            window.onload = myCode();
+            </script>
+        
+            <!-- ......................................................... -->
     <ul name = "tab browser">
         <ul id="menu">  
          
@@ -24,26 +82,19 @@
            <p>Add the course information </p>
         
         </div>
-        <div id="Course container body"
-        >
-        <form name = "name course card">
+        <form>
+        <div>
             <input type = "text" id = "namec" placeholder="Course Name">
-        </form>
-        
-        <form name = "Course number">
             <input type = "number" id = "idc" placeholder="Course Number">
-        </form>
-        <form name = "Seat capacity">
             <input type = "number" id = "seat capacity" placeholder="Seat Capacity">
-        </form>
-        <form name = "degree course card">
             <input type = "text" id = "degreec" placeholder="College">
-          </form>
-            <form name = "Submit course">
-            <input type = "Submit" id="ButtonC" value=" Add Course">
-            </form>
+        </div> 
+        <div class = "Submit Course">
+            <button id = "ButtonC">Add course</button>
         </div>
-        </div>
+    </form>
+</div>
+        </body>
 </body>
 </html>
 
