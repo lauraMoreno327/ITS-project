@@ -44,7 +44,6 @@
 let students = [];
 let courses =[];
 
-console.log(students);
 const addStudent = (ev) =>{
     ev.preventDefault();
   
@@ -60,12 +59,15 @@ const addStudent = (ev) =>{
     }
     students.push(student);
     document.querySelector('form').reset();
+    //console.log(students);
+    localStorage.setItem('Students list', JSON.stringify(students));x
     alert("The student has been added succesfully, tap on studentss tab to see all students");
-    console.log(students);
+    
 }
 // event listener for add students courses
 document.addEventListener('DOMContentLoaded',()=>{
-document.getElementById("Button Student").addEventListener("click", addStudent);
+document.getElementById("Button Student").addEventListener("click", addStudent)
+;
 });
 
 const  addCourse =  (ev) =>{
@@ -83,17 +85,20 @@ const  addCourse =  (ev) =>{
         courses.push(course);
         document.querySelector('form').reset();
         alert("The course has been added succesfully, tap on courses tab to see all courses");
-        
+        localStorage.setItem('Course List', JSON.stringify(courses));
             }
         //event listener for add courses button
             document.addEventListener('DOMContentLoaded',()=>{
                 document.getElementById("Button Course").addEventListener("click", addCourse);
                 });
         
-            
+    function removeStudent(studentID){
+     students = localStorage.getItem('Students List');
+
+ }            
 //local storage 
-localStorage.setItem('Students list', JSON.stringify(students));
-localStorage.setItem('Course List', JSON.stringify(courses));
+//  localStorage.setItem('Students list', JSON.stringify(students));
+// localStorage.setItem('Course List', JSON.stringify(courses));
 
 
     </script>
