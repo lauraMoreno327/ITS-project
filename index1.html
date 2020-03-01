@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <form class = "Student container">
+<div class = "Student info">
+<input type="text" id="name" placeholder="First Name">
+<input type="text" id="lastname" placeholder="Last Name">
+<input type="text" id="degree" placeholder="Major">
+<input type="number" id="id" placeholder="ID number">
+<input type="number" id="age" placeholder="Age">
+<button id ="Button Student">Add student</button>
+</div>
+</form>
+<form class = "Course container">
+    <div class = "Course info">
+    <input type="text" id="nameC" placeholder="Course Name">
+    <input type="number" id="idc" placeholder="Course Number">
+    <input type="number" id="seat capacity" placeholder="Seat Capacity">
+    <input type="text" id="college" placeholder="College">
+    <button id ="Button Course">Add course</button>
+    </div>
+    </form>
+    <script>
+let students = [];
+let courses =[];
+console.log("hola");
+console.log(students);
+const addStudent = (ev) =>{
+    ev.preventDefault();
+  
+    let student = {
+    
+        name: document.getElementById("name").value,
+        lastName:document.getElementById("lastname").value,
+        degree: document.getElementById("degree").value,
+        idNumber: document.getElementById("id").value,
+        age :document.getElementById("age").value
+       
+    
+    }
+    students.push(student);
+    document.querySelector('form').reset();
+    alert("The student has been added succesfully, tap on studentss tab to see all students");
+    console.log(students);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("Button Student").addEventListener("click", addStudent);
+});
+
+const  addCourse =  (ev) =>{
+            ev.preventDefault();
+            let course =  {
+           
+                
+                nameC: document.getElementById("nameC").value,
+                iDC: document.getElementById("idc").value,
+                seatLimit: document.getElementById("seat capacity").value,
+                degreeC: document.getElementById("college").value
+               
+            
+                }
+        courses.push(course);
+        document.querySelector('form').reset();
+        alert("The course has been added succesfully, tap on courses tab to see all courses");
+        
+            }
+            document.addEventListener('DOMContentLoaded',()=>{
+                document.getElementById("Button Course").addEventListener("click", addCourse);
+                });
+        
+            
+
+
+
+    </script>
+    
+</body>
+</html>
