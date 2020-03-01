@@ -14,7 +14,7 @@ padding: 2em;
         background-color: #90bade;
         color: #333;
         position: absolute;
-        top: 5%;
+        top: 80%;
         }
 
    
@@ -40,15 +40,16 @@ padding: 2em;
         color: #fff;
         }
 
-    #scontainer{
+    #Studentcontainer{
         position: absolute;
         top: 30%;
+        background-color: #90bade;
 
     }
-    #ccontainer{
+    #Coursecontainer{
         position: absolute;
         top: 30%;
-
+        background-color: #90bade;
     }
 
 

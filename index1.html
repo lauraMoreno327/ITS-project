@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 </head>
 <body>
-    <form class = "Student container">
+    <div id = "menu">
+        <ul name = "tab browser">
+            <ul>    
+                <li><a href="Home.html">Home</a></li>          
+                <li><a href="index1.html">Add students and courses</a></li>
+                <li><a href="#">See students</a></li>
+                <li><a href="#">See courses</a></li>
+            </ul>
+        </ul>
+        
+        </div>
+    <form class = "Studentcontainer">
+    <h2>Add Students</h2>
 <div class = "Student info">
 <input type="text" id="name" placeholder="First Name">
 <input type="text" id="lastname" placeholder="Last Name">
@@ -16,7 +29,8 @@
 <button id ="Button Student">Add student</button>
 </div>
 </form>
-<form class = "Course container">
+<form class = "Coursecontainer">
+    <h2>Add Courses</h2>
     <div class = "Course info">
     <input type="text" id="nameC" placeholder="Course Name">
     <input type="number" id="idc" placeholder="Course Number">
@@ -25,10 +39,11 @@
     <button id ="Button Course">Add course</button>
     </div>
     </form>
+    <!-- .......................................................... -->
     <script>
 let students = [];
 let courses =[];
-console.log("hola");
+
 console.log(students);
 const addStudent = (ev) =>{
     ev.preventDefault();
@@ -48,6 +63,7 @@ const addStudent = (ev) =>{
     alert("The student has been added succesfully, tap on studentss tab to see all students");
     console.log(students);
 }
+// event listener for add students courses
 document.addEventListener('DOMContentLoaded',()=>{
 document.getElementById("Button Student").addEventListener("click", addStudent);
 });
@@ -69,15 +85,18 @@ const  addCourse =  (ev) =>{
         alert("The course has been added succesfully, tap on courses tab to see all courses");
         
             }
+        //event listener for add courses button
             document.addEventListener('DOMContentLoaded',()=>{
                 document.getElementById("Button Course").addEventListener("click", addCourse);
                 });
         
             
-
+//local storage 
+localStorage.setItem('Students list', JSON.stringify(students));
+localStorage.setItem('Course List', JSON.stringify(courses));
 
 
     </script>
-    
+    <!-- ........................................................................ -->
 </body>
 </html>
