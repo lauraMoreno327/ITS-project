@@ -60,7 +60,7 @@ const addStudent = (ev) =>{
     students.push(student);
     document.querySelector('form').reset();
     //console.log(students);
-    localStorage.setItem('Students list', JSON.stringify(students));x
+    localStorage.setItem('Students list', JSON.stringify(students));
     alert("The student has been added succesfully, tap on studentss tab to see all students");
     
 }
@@ -91,9 +91,10 @@ const  addCourse =  (ev) =>{
             document.addEventListener('DOMContentLoaded',()=>{
                 document.getElementById("Button Course").addEventListener("click", addCourse);
                 });
-        
+       
     function removeStudent(studentID){
-     students = localStorage.getItem('Students List');
+        const data = JSON.parse(localStorage.getItem('Students List'));
+     
 
  }            
 //local storage 
