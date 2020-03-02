@@ -51,6 +51,11 @@ padding: 2em;
         top: 30%;
         background-color: #90bade;
     }
+    #SeeStudentsAndCoursesButtons{
+        position: absolute;
+        top: 70% ;
+        size: 5pt;
+    }
 
 
     

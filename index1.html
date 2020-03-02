@@ -12,7 +12,6 @@
             <ul>    
                 <li><a href="Home.html">Home</a></li>          
                 <li><a href="index1.html">Add students and courses</a></li>
-                <li><a href="#">See students</a></li>
                 <li><a href="#">See courses</a></li>
             </ul>
         </ul>
@@ -30,8 +29,9 @@
 </div>
 </form>
 <form class = "Coursecontainer">
+    <div class="COurse info">
     <h2>Add Courses</h2>
-    <div class = "Course info">
+    <div id = "classInfo"class = "Course info">
     <input type="text" id="nameC" placeholder="Course Name">
     <input type="number" id="idc" placeholder="Course Number">
     <input type="number" id="seat capacity" placeholder="Seat Capacity">
@@ -39,10 +39,16 @@
     <button id ="Button Course">Add course</button>
     </div>
     </form>
+    <form class = "SeeStudentsAndCoursesButtons">
+        <button id="ss">Shows Students</button>
+        <button id="Show Courses"> Show Courses</button>
+    </form>
+    <p id="Demo"></p>
     <!-- .......................................................... -->
     <script>
 let students = [];
 let courses =[];
+console.log("Test");
 
 const addStudent = (ev) =>{
     ev.preventDefault();
@@ -59,9 +65,10 @@ const addStudent = (ev) =>{
     }
     students.push(student);
     document.querySelector('form').reset();
-    //console.log(students);
     localStorage.setItem('Students list', JSON.stringify(students));
     alert("The student has been added succesfully, tap on studentss tab to see all students");
+    console.log(localStorage.getItem('Students list'));
+    document.getElementById("Demo").innerHTML = localStorage.getItem('Students list');
     
 }
 // event listener for add students courses
@@ -84,6 +91,7 @@ const  addCourse =  (ev) =>{
                 }
         courses.push(course);
         document.querySelector('form').reset();
+        document.getElementById("classInfo").reset;
         alert("The course has been added succesfully, tap on courses tab to see all courses");
         localStorage.setItem('Course List', JSON.stringify(courses));
             }
@@ -92,8 +100,24 @@ const  addCourse =  (ev) =>{
                 document.getElementById("Button Course").addEventListener("click", addCourse);
                 });
        
+    
     function removeStudent(studentID){
-        const data = JSON.parse(localStorage.getItem('Students List'));
+        var data = JSON.parse(localStorage.getItem('Students List'));
+        for(var i =0; i<data.size();i++)  {
+            if(data[i].idNumber==studentID){
+            students.pop(data[i]);
+            }
+        }
+    function showStudents(){
+       console.warn('added', {students});
+       let pre = document.querySelector('#msg pre');
+       pre.textContent ='\n'+ JSON.stringify(students, '\t',2);
+    }
+
+       
+             //   document.getElementById("ss").addEventListener("click", showStudents, false);
+               
+        
      
 
  }            
