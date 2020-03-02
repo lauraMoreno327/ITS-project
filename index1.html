@@ -39,13 +39,11 @@
     <button id ="Button Course">Add course</button>
     </div>
     </form>
-    <form class = "SeeStudentsAndCoursesButtons">
-        <button id="ss">Shows Students</button>
-        <button id="Show Courses"> Show Courses</button>
-    </form>
+  
     
     <p id="Demo"></p>
-    <!-- .......................................................... -->
+    <p id="Demo1"></p>
+    <!-- .............................................................................................................. -->
     <script>
 let students = [];
 let courses =[];
@@ -103,6 +101,14 @@ const  addCourse =  (ev) =>{
         document.getElementById("classInfo").reset;
         alert("The course has been added succesfully, tap on courses tab to see all courses");
         localStorage.setItem('Course List', JSON.stringify(courses));
+        var copy = JSON.parse(localStorage.getItem('Course List'));
+    console.log(copy.length);
+    var first ="";
+    for(var i=0; i<copy.length;i++){
+        var result = "The courses that are currently are:\n";
+        first +=copy[i].nameC +" "+copy[i].iDC +" "+copy[i].seatLimit+" "+copy[i].degreeC +",";
+        document.getElementById("Demo1").innerHTML = result + first  ;
+    }
             }
         //event listener for add courses button
             document.addEventListener('DOMContentLoaded',()=>{
@@ -117,22 +123,8 @@ const  addCourse =  (ev) =>{
             students.pop(data[i]);
             }
         }
-    function showStudents(){
-       console.warn('added', {students});
-       let pre = document.querySelector('#msg pre');
-       pre.textContent ='\n'+ JSON.stringify(students, '\t',2);
+
     }
-
-       
-             //   document.getElementById("ss").addEventListener("click", showStudents, false);
-               
-        
-     
-
- }            
-//local storage 
-//  localStorage.setItem('Students list', JSON.stringify(students));
-// localStorage.setItem('Course List', JSON.stringify(courses));
 
 
     </script>
