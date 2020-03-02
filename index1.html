@@ -72,12 +72,11 @@ const addStudent = (ev) =>{
 
     var copy = JSON.parse(localStorage.getItem('Students list'));
     console.log(copy.length);
+    var first ="";
     for(var i=0; i<copy.length;i++){
-        var result = "The students who are curently enrolled are:" +'\n';
-        var first =copy[i].name +" "+copy[i].lastName +" "+copy[i].degree +" "+copy[i].idNumber +" "+copy[i].age +'\n';
-      
-     var  finalString = "" + finalString.join(first);
-        document.getElementById("Demo").innerHTML = result + finalString;
+        var result = "The students who are curently enrolled are:\n";
+        first +=copy[i].name +" "+copy[i].lastName +" "+copy[i].degree +" "+copy[i].idNumber +" "+copy[i].age +",";
+        document.getElementById("Demo").innerHTML = result + first  ;
     }
     
 }
