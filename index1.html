@@ -43,6 +43,7 @@
         <button id="ss">Shows Students</button>
         <button id="Show Courses"> Show Courses</button>
     </form>
+    
     <p id="Demo"></p>
     <!-- .......................................................... -->
     <script>
@@ -68,7 +69,16 @@ const addStudent = (ev) =>{
     localStorage.setItem('Students list', JSON.stringify(students));
     alert("The student has been added succesfully, tap on studentss tab to see all students");
     console.log(localStorage.getItem('Students list'));
-    document.getElementById("Demo").innerHTML = localStorage.getItem('Students list');
+
+    var copy = JSON.parse(localStorage.getItem('Students list'));
+    console.log(copy.length);
+    for(var i=0; i<copy.length;i++){
+        var result = "The students who are curently enrolled are:" +'\n';
+        var first =copy[i].name +" "+copy[i].lastName +" "+copy[i].degree +" "+copy[i].idNumber +" "+copy[i].age +'\n';
+      
+     var  finalString = "" + finalString.join(first);
+        document.getElementById("Demo").innerHTML = result + finalString;
+    }
     
 }
 // event listener for add students courses
