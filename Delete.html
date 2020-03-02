@@ -29,9 +29,12 @@
 </div>
 </form>
 <p id="hi"></p>
-    <script>
+<p id="secondparagraph"></p>
 
+    <script>
+//........................................................................................................................
 var data = JSON.parse(localStorage.getItem('Students list')); 
+var courseData = JSON.parse(localStorage.getItem('Course List'));
 
     const removeStudent = (ev) =>{
         ev.preventDefault();
@@ -39,12 +42,7 @@ var data = JSON.parse(localStorage.getItem('Students list'));
             if(data[i].idNumber==document.getElementById("idPerson").value){
             data.splice(i,1);
             }
-            var first ="";
-    for(var j=0; j<data.length;j++){
-        var result = "The students who are curently enrolled are:\n";
-        first +=data[j].name +" "+data[j].lastName;
-        document.getElementById("hi").innerHTML = result + first  ;
-    }
+  
         } 
         alert("The student with ID: " + document.getElementById("idPerson").value + " has been successfully removed");
         var first ="";
@@ -59,6 +57,28 @@ var data = JSON.parse(localStorage.getItem('Students list'));
 document.getElementById("DeleteStudent").addEventListener("click", removeStudent)
 ;
 });
+// ......................................................................................................................
+const removeCourse = (ev) =>{
+    ev.preventDefault();
+    for(var i =0; i<courseData.length;i++){
+        if(courseData[i].iDC ==document.getElementById("idCourse").value){
+            courseData.splice(i,1);
+        } 
+    }
+alert("The course with number " + document.getElementById("idCourse").value + " has been successfully removed");
+var first ="";
+    for(var j=0; j<courseData.length;j++){
+        var result = "The current courses are:\n";
+        first +=courseData[j].nameC;
+        document.getElementById("secondparagraph").innerHTML = result + first  ;
+    }
+
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("DeleteCourse").addEventListener("click", removeCourse)
+;
+});
+
 
     </script>
     
