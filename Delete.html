@@ -47,10 +47,11 @@ var courseData = JSON.parse(localStorage.getItem('Course List'));
   
         } 
         alert("The student with ID: " + document.getElementById("idPerson").value + " has been successfully removed");
+        localStorage.setItem('Students list', JSON.stringify(data));
         var first ="";
     for(var j=0; j<data.length;j++){
         var result = "The name of the currently enrolled students are:\n";
-        first +=data[j].name;
+        first +=data[j].name; +" ";
         document.getElementById("hi").innerHTML = result + first  ;
     }
 
@@ -68,10 +69,11 @@ const removeCourse = (ev) =>{
         } 
     }
 alert("The course with number " + document.getElementById("idCourse").value + " has been successfully removed");
+localStorage.setItem('Course List', JSON.stringify(courseData));
 var first ="";
     for(var j=0; j<courseData.length;j++){
         var result = "The current courses are:\n";
-        first +=courseData[j].nameC;
+        first +=courseData[j].nameC +" ";
         document.getElementById("secondparagraph").innerHTML = result + first  ;
     }
 
