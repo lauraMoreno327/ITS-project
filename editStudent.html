@@ -31,7 +31,7 @@
         </form>
 
         <form class = "Studentcontainer">
-            <h2>Insert the new/modify details of the student </h2>
+            <h3>Insert the new/modify details of the student </h3>
         <div class = "Student info">
         <input type="text" id="newName" placeholder="First Name">
         <input type="text" id="newLastname" placeholder="Last Name">
@@ -41,10 +41,21 @@
         <button id ="UpdateStudent">Update</button>
         </div>
         </form>
+        <form class = "Coursecontainer">
+            <h3>Insert the new/modify details of the course </h3>
+        <div class = "Course info">
+        <input type="text" id="newNameC" placeholder="Course Name">
+        <input type="number" id="newidc" placeholder="Course Number">
+        <input type="number" id="newSeatCapacity" placeholder="Seat Capacity">
+        <input type="text" id="newCollege" placeholder="College">
+        <button id ="UpdateCourse">Update</button>
+        </div>
+        </form>
         <p id="hi"></p>
         <!-- ................................................................................... -->
         <script>
           var data = JSON.parse(localStorage.getItem('Students list')); 
+          var courseData = JSON.parse(localStorage.getItem('Course List'));
 
           const displayStudentInfo = (ev) =>{
     ev.preventDefault();
@@ -66,7 +77,7 @@ const displayCourseInfo = (ev) =>{
     for(var i =0; i<courseData.length;i++)  {
             if(courseData[i].iDC==document.getElementById("idCourseChange").value){
              
-            document.getElementById("hi").innerHTML = courseData[i].nameC +" "+courseData[i].iDC +" "+courseData[i].seatLimit +" "+courseData[i].degreeC;
+            document.getElementById("hi").innerHTML = courseData[i].nameC +" "+courseData[i].iDC +" "+courseData[i].seatLimit +" "+courseData[i].degreeC + " : IF CORRECT, ENTER NEW DETAILS ABOVE";
             }
 }
 }
@@ -95,6 +106,28 @@ alert("Successful update ");
 document.getElementById("UpdateStudent").addEventListener("click", updateStudentInfo)
 ;
 });
+
+const updateCourseInfo = (ev) =>{
+              ev.preventDefault();
+              for(var i =0; i<courseData.length;i++)  {
+            if(courseData[i].iDC==document.getElementById("idCourseChange").value){
+                courseData[i].nameC = document.getElementById("newNameC").value;
+                courseData[i].iDC = document.getElementById("newidc").value;
+                courseData[i].seatLimit = document.getElementById("newSeatCapacity").value;
+                courseData[i].degreeC = document.getElementById("newCollege").value;
+              
+               
+            }
+}
+localStorage.setItem('Course List', JSON.stringify(courseData));
+alert("Successful update ");
+      
+          }
+          document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("UpdateCourse").addEventListener("click", updateCourseInfo)
+;
+});
+
         </script>
     
 </body>
