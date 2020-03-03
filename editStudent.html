@@ -14,6 +14,7 @@
                 <li><a href="index1.html">Add students and courses</a></li>
                 <li><a href="Delete.html">Delete students or courses</a></li>
                 <li><a href="editStudent.html">Edit student info</a></li>
+                <li><a href="Enrollment.html">Enroll in courses</a></li>
             </ul>
         </ul>
         
@@ -31,7 +32,7 @@
         </form>
 
         <form class = "Studentcontainer">
-            <h3>Insert the new/modify details of the student </h3>
+            <h3>Insert the new/modify details of the student. Please fill all spaces </h3>
         <div class = "Student info">
         <input type="text" id="newName" placeholder="First Name">
         <input type="text" id="newLastname" placeholder="Last Name">
@@ -42,7 +43,7 @@
         </div>
         </form>
         <form class = "Coursecontainer">
-            <h3>Insert the new/modify details of the course </h3>
+            <h3>Insert the new/modify details of the course. Please fill all spaces</h3>
         <div class = "Course info">
         <input type="text" id="newNameC" placeholder="Course Name">
         <input type="number" id="newidc" placeholder="Course Number">
@@ -90,12 +91,15 @@ document.getElementById("SearchCourse").addEventListener("click", displayCourseI
               ev.preventDefault();
               for(var i =0; i<data.length;i++)  {
             if(data[i].idNumber==document.getElementById("idPersonChange").value){
+            
                data[i].name = document.getElementById("newName").value;
                data[i].lastName = document.getElementById("newLastname").value;
                data[i].degree = document.getElementById("newDegree").value;
                data[i].idNumber = document.getElementById("newId").value;
                data[i].age = document.getElementById("newAge").value;
+                
                
+                
             }
 }
 localStorage.setItem('Students list', JSON.stringify(data));

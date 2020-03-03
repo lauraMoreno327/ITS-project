@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-    <title>Home</title>
+    <title>Enrollment</title>
 </head>
 <body>
     <div id = "menu">
@@ -19,14 +19,22 @@
         </ul>
         
         </div>
+        <form class = "Course to enroll in">
+    
+        <div class = "changeArrayCourses">
+            <h3>Insert ID of student and course number to enroll the student in the respective class</h3>
+            <input type="number" id="enrollStudent" placeholder="StudentID">
+            <input type="number" id="enrollCourse" placeholder="Course number">
+            <button id ="enrollSubmit">Enroll</button>
+            </div>
+            </form>
+            <p id="print"></p>
+            <!--  ............................................................................................ -->
+        <script>
+         
 
-        
-            <h2 align = "center" >Fall 2020</h2>
-            <p id="paragraph"></p>
-            <Script>
-            var copy = JSON.parse(localStorage.getItem('Students list'));
-            document.getElementById("paragraph").innerHTML = copy[0].name;
 
-            </Script>
+        </script>
 </body>
+
 </html>
