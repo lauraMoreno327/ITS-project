@@ -17,7 +17,7 @@
         </ul>
         
         </div>
-    <form class = "Modification_purposes">
+    <form class = "Remove items">
     <h3>Enter the ID of the student or the number of the course you wish to delete</h3>
 <div class = "changeArrayStudents">
 <input type="number" id="idPerson" placeholder="Student ID">
@@ -26,6 +26,17 @@
 <div class = "changeArrayCourses"></div>
 <input type="number" id="idCourse" placeholder="Course Number">
 <button id ="DeleteCourse">Delete Course</button>
+</div>
+</form>
+<form class = "Modify items">
+    <h3>Enter the ID of the student or the number of the course you wish to modify</h3>
+<div class = "changeArrayStudents">
+<input type="number" id="idPersonChange" placeholder="ID of student to change">
+<button id ="SearchStudent">Search student</button>
+</div>
+<div class = "changeArrayCourses"></div>
+<input type="number" id="idCourseChange" placeholder="Number of course to change">
+<button id ="SearchCourse">Search Course</button>
 </div>
 </form>
 <p id="hi"></p>
@@ -47,7 +58,7 @@ var courseData = JSON.parse(localStorage.getItem('Course List'));
         alert("The student with ID: " + document.getElementById("idPerson").value + " has been successfully removed");
         var first ="";
     for(var j=0; j<data.length;j++){
-        var result = "The students who are curently enrolled are:\n";
+        var result = "The name of the currently enrolled students are:\n";
         first +=data[j].name;
         document.getElementById("hi").innerHTML = result + first  ;
     }
@@ -76,6 +87,20 @@ var first ="";
 }
 document.addEventListener('DOMContentLoaded',()=>{
 document.getElementById("DeleteCourse").addEventListener("click", removeCourse)
+;
+});
+
+const displayStudentInfo = (ev) =>{
+    ev.preventDefault();
+    for(var i =0; i<data.length;i++)  {
+            if(data[i].idNumber==document.getElementById("idPersonChange").value){
+               
+            document.getElementById("hi").innerHTML = data[i].name +" "+data[i].lastName +" "+data[i].degree +" "+data[i].idNumber +" "+data[i].age +" ";
+            }
+}
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("SearchStudent").addEventListener("click", displayStudentInfo)
 ;
 });
 
