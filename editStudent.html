@@ -13,10 +13,22 @@
                 <li><a href="Home.html">Home</a></li>          
                 <li><a href="index1.html">Add students and courses</a></li>
                 <li><a href="Delete.html">Delete students or courses</a></li>
+                <li><a href="editStudent.html">Edit student info</a></li>
             </ul>
         </ul>
         
         </div>
+        <form class = "Modify items">
+            <h3>Enter the ID of the student or the number of the course you wish to modify</h3>
+        <div class = "changeArrayStudents">
+        <input type="number" id="idPersonChange" placeholder="ID of student to change">
+        <button id ="SearchStudent">Search student</button>
+        </div>
+        <div class = "changeArrayCourses"></div>
+        <input type="number" id="idCourseChange" placeholder="Number of course to change">
+        <button id ="SearchCourse">Search Course</button>
+        </div>
+        </form>
 
         <form class = "Studentcontainer">
             <h2>Insert the new/modify details of the student </h2>
@@ -29,15 +41,44 @@
         <button id ="UpdateStudent">Update</button>
         </div>
         </form>
+        <p id="hi"></p>
         <!-- ................................................................................... -->
         <script>
           var data = JSON.parse(localStorage.getItem('Students list')); 
-          import{referenceStudent} from 'Delete.html'
+
+          const displayStudentInfo = (ev) =>{
+    ev.preventDefault();
+    for(var i =0; i<data.length;i++)  {
+            if(data[i].idNumber==document.getElementById("idPersonChange").value){
+              
+            document.getElementById("hi").innerHTML = data[i].name +" "+data[i].lastName +" "+data[i].degree +" "+data[i].idNumber +" "+data[i].age +": IF CORRECT, INSERT NEW INFORMATION ABOVE";
+            }
+}
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("SearchStudent").addEventListener("click", displayStudentInfo)
+;
+});
+
+const displayCourseInfo = (ev) =>{
+    ev.preventDefault();
+    for(var i =0; i<courseData.length;i++)  {
+            if(courseData[i].iDC==document.getElementById("idCourseChange").value){
+             
+            document.getElementById("hi").innerHTML = courseData[i].nameC +" "+courseData[i].iDC +" "+courseData[i].seatLimit +" "+courseData[i].degreeC;
+            }
+}
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("SearchCourse").addEventListener("click", displayCourseInfo)
+;
+});
 
           const updateStudentInfo = (ev) =>{
               ev.preventDefault();
               for(var i =0; i<data.length;i++)  {
-            if(data[i].idNumber==referenceStudent){
+            if(data[i].idNumber==document.getElementById("idPersonChange").value){
                data[i].name = document.getElementById("newName").value;
                data[i].lastName = document.getElementById("newLastname").value;
                data[i].degree = document.getElementById("newDegree").value;
