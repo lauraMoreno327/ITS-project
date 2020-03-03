@@ -67,7 +67,7 @@ const addStudent = (ev) =>{
     students.push(student);
     document.querySelector('form').reset();
     localStorage.setItem('Students list', JSON.stringify(students));
-    alert("The student has been added succesfully, tap on studentss tab to see all students");
+    alert("The student has been added succesfully");
     console.log(localStorage.getItem('Students list'));
     var copy = JSON.parse(localStorage.getItem('Students list'));
     console.log(copy.length);

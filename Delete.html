@@ -13,6 +13,7 @@
                 <li><a href="Home.html">Home</a></li>          
                 <li><a href="index1.html">Add students and courses</a></li>
                 <li><a href="Delete.html">Delete students or courses</a></li>
+                <li><a href="editStudent.html">Edit student info</a></li>
             </ul>
         </ul>
         
@@ -89,25 +90,27 @@ document.addEventListener('DOMContentLoaded',()=>{
 document.getElementById("DeleteCourse").addEventListener("click", removeCourse)
 ;
 });
-
+var reference;
 const displayStudentInfo = (ev) =>{
     ev.preventDefault();
     for(var i =0; i<data.length;i++)  {
             if(data[i].idNumber==document.getElementById("idPersonChange").value){
-               
-            document.getElementById("hi").innerHTML = data[i].name +" "+data[i].lastName +" "+data[i].degree +" "+data[i].idNumber +" "+data[i].age +" ";
+               reference = document.getElementById("idPersonChange").value;
+            document.getElementById("hi").innerHTML = data[i].name +" "+data[i].lastName +" "+data[i].degree +" "+data[i].idNumber +" "+data[i].age +": IF CORRECT CLICK ON EDIT STUDENT TAB";
             }
 }
 }
+export{reference};
 document.addEventListener('DOMContentLoaded',()=>{
 document.getElementById("SearchStudent").addEventListener("click", displayStudentInfo)
 ;
 });
+
 const displayCourseInfo = (ev) =>{
     ev.preventDefault();
     for(var i =0; i<courseData.length;i++)  {
             if(courseData[i].iDC==document.getElementById("idCourseChange").value){
-               
+             
             document.getElementById("hi").innerHTML = courseData[i].nameC +" "+courseData[i].iDC +" "+courseData[i].seatLimit +" "+courseData[i].degreeC;
             }
 }

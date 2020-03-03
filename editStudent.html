@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
+<body>
+    <div id = "menu">
+        <ul name = "tab browser">
+            <ul>    
+                <li><a href="Home.html">Home</a></li>          
+                <li><a href="index1.html">Add students and courses</a></li>
+                <li><a href="Delete.html">Delete students or courses</a></li>
+            </ul>
+        </ul>
+        
+        </div>
+
+        <form class = "Studentcontainer">
+            <h2>Insert the new/modify details of the student </h2>
+        <div class = "Student info">
+        <input type="text" id="newName" placeholder="First Name">
+        <input type="text" id="newLastname" placeholder="Last Name">
+        <input type="text" id="newDegree" placeholder="Major">
+        <input type="number" id="newId" placeholder="ID number">
+        <input type="number" id="newAge" placeholder="Age">
+        <button id ="UpdateStudent">Update</button>
+        </div>
+        </form>
+        <!-- ................................................................................... -->
+        <script>
+          var data = JSON.parse(localStorage.getItem('Students list')); 
+          import{referenceStudent} from 'Delete.html'
+
+          const updateStudentInfo = (ev) =>{
+              ev.preventDefault();
+              for(var i =0; i<data.length;i++)  {
+            if(data[i].idNumber==referenceStudent){
+               data[i].name = document.getElementById("newName").value;
+               data[i].lastName = document.getElementById("newLastname").value;
+               data[i].degree = document.getElementById("newDegree").value;
+               data[i].idNumber = document.getElementById("newId").value;
+               data[i].age = document.getElementById("newAge").value;
+               
+            }
+}
+localStorage.setItem('Students list', JSON.stringify(data));
+alert("Successful update ");
+      
+          }
+          document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("UpdateStudent").addEventListener("click", updateStudentInfo)
+;
+});
+        </script>
+    
+</body>
+</html>
