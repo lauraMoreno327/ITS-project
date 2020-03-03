@@ -103,7 +103,19 @@ document.addEventListener('DOMContentLoaded',()=>{
 document.getElementById("SearchStudent").addEventListener("click", displayStudentInfo)
 ;
 });
-
+const displayCourseInfo = (ev) =>{
+    ev.preventDefault();
+    for(var i =0; i<courseData.length;i++)  {
+            if(courseData[i].iDC==document.getElementById("idCourseChange").value){
+               
+            document.getElementById("hi").innerHTML = courseData[i].nameC +" "+courseData[i].iDC +" "+courseData[i].seatLimit +" "+courseData[i].degreeC;
+            }
+}
+}
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("SearchCourse").addEventListener("click", displayCourseInfo)
+;
+});
 
     </script>
     
