@@ -32,6 +32,50 @@
             <!--  ............................................................................................ -->
         <script>
          
+let studentsInCourse = [];
+var data = JSON.parse(localStorage.getItem('Students list'));
+var courseData = JSON.parse(localStorage.getItem('Course List'));
+
+   
+    const enrollStudentstoExistentCourse =(ev) =>{
+        var reference = document.getElementById("enrollCourse").value;
+        if(localStorage.getItem(reference)===null){
+        
+for(var j=0; j<courseData.length;j++){
+
+if(courseData[j].iDC==document.getElementById("enrollCourse").value)
+{
+    for(var i =0; i<data.length;i++)  {
+        console.log("reached here");
+            if(data[i].idNumber==document.getElementById("enrollStudent").value){
+              
+                let studentIC ={
+                    nameS: data[i].name,
+                    idS : data[i].idNumber,
+                    idSC: data[i].idNumber + document.getElementById("enrollCourse").value,
+                    major: data[i].degree
+
+                }
+                studentsInCourse.push(studentIC);
+            localStorage.setItem(reference,JSON.stringify(studentsInCourse));
+            
+            }
+        }
+        }
+        if(j===courseData.length-1){
+        alert("The course number you inserted does not exist, please check your value or add a new course")
+        }
+}
+
+}
+    }
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById("enrollSubmit").addEventListener("click", enrollStudentstoExistentCourse)
+;
+});
+
+
 
 
         </script>
