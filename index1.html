@@ -31,7 +31,6 @@
 </div>
 </form>
 <form class = "Coursecontainer">
-    <div class="COurse info">
     <h2>Add Courses</h2>
     <div id = "classInfo"class = "Course info">
     <input type="text" id="nameC" placeholder="Course Name">
@@ -75,8 +74,8 @@ const addStudent = (ev) =>{
     console.log(copy.length);
     var first ="";
     for(var i=0; i<copy.length;i++){
-        var result = "The students who are curently enrolled are:\n";
-        first +=copy[i].name +" "+copy[i].lastName +" "+copy[i].degree +" "+copy[i].idNumber +" "+copy[i].age +",";
+        var result = "The students who are curently enrolled are: ";
+        first +=copy[i].name +" "+copy[i].lastName +"-"+copy[i].degree +"-"+copy[i].idNumber +"-"+copy[i].age +", ";
         document.getElementById("Demo").innerHTML = result + first  ;
     }
     
@@ -100,8 +99,7 @@ const  addCourse =  (ev) =>{
             
                 }
         courses.push(course);
-        document.querySelector('form').reset();
-        document.getElementById("classInfo").reset;
+        document.getElementsByClassName("Coursecontainer").reset;
         alert("The course has been added succesfully, tap on courses tab to see all courses");
         localStorage.setItem('Course List', JSON.stringify(courses));
         var copy = JSON.parse(localStorage.getItem('Course List'));
@@ -109,7 +107,7 @@ const  addCourse =  (ev) =>{
     var first ="";
     for(var i=0; i<copy.length;i++){
         var result = "The courses that are currently are:\n";
-        first +=copy[i].nameC +" "+copy[i].iDC +" "+copy[i].seatLimit+" "+copy[i].degreeC +",";
+        first +=copy[i].nameC +"-"+copy[i].iDC +"-"+copy[i].seatLimit+"-"+copy[i].degreeC +",";
         document.getElementById("Demo1").innerHTML = result + first  ;
     }
             }
