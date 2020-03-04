@@ -52,7 +52,7 @@ var courseData = JSON.parse(localStorage.getItem('Course List'));
         var first ="";
     for(var j=0; j<data.length;j++){
         var result = "The name of the currently enrolled students are:\n";
-        first +=data[j].name; +" ";
+        first +=data[j].name; +", ";
         document.getElementById("hi").innerHTML = result + first  ;
     }
 
@@ -74,7 +74,7 @@ localStorage.setItem('Course List', JSON.stringify(courseData));
 var first ="";
     for(var j=0; j<courseData.length;j++){
         var result = "The current courses are:\n";
-        first +=courseData[j].nameC +" ";
+        first +=courseData[j].nameC +", ";
         document.getElementById("secondparagraph").innerHTML = result + first  ;
     }
 
